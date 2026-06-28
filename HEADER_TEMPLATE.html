@@ -1,0 +1,307 @@
+<!-- ========================================
+     UPDATED HEADER WITH THEME SWITCHER
+     Include this in your HTML <head> section
+     ======================================== -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Professional portfolio showcasing responsive design and advanced CSS3 architecture.">
+    <meta name="keywords" content="web design, CSS3, responsive, portfolio">
+    <meta name="theme-color" content="#2c3e50">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Advanced Responsive Portfolio">
+    <meta property="og:description" content="Built with CSS Grid, Flexbox, and modern responsive design">
+    <meta property="og:type" content="website">
+    
+    <title>Responsive Portfolio | Advanced CSS3 Design</title>
+    <link rel="canonical" href="https://yourportfolio.com/">
+    
+    <!-- ===== STYLESHEETS ===== -->
+    <!-- Advanced CSS with Grid, Flexbox, and Variables -->
+    <link rel="stylesheet" href="styles-advanced.css">
+    
+    <!-- Optional: Additional utilities or overrides -->
+    <link rel="stylesheet" href="responsive-utilities.css">
+</head>
+<body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- ===== HEADER WITH THEME SWITCHER ===== -->
+    <header role="banner">
+        <nav role="navigation" aria-label="Primary Navigation">
+            <div class="container nav-container">
+                <!-- Logo/Branding -->
+                <div class="logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">Portfolio</span>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <ul class="nav-list">
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="portfolio.html">Portfolio</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+
+                <!-- Theme Switcher Controls -->
+                <div class="theme-switcher" role="group" aria-label="Theme Selection">
+                    <!-- Light Mode Button -->
+                    <button 
+                        data-theme-toggle="light"
+                        aria-pressed="true"
+                        aria-label="Switch to Light Mode"
+                        title="Light Mode"
+                        class="theme-btn theme-btn-light"
+                    >
+                        <span aria-hidden="true">☀️</span>
+                        <span class="sr-only">Light</span>
+                    </button>
+
+                    <!-- Dark Mode Button -->
+                    <button 
+                        data-theme-toggle="dark"
+                        aria-pressed="false"
+                        aria-label="Switch to Dark Mode"
+                        title="Dark Mode"
+                        class="theme-btn theme-btn-dark"
+                    >
+                        <span aria-hidden="true">🌙</span>
+                        <span class="sr-only">Dark</span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main id="main-content" role="main">
+        <!-- Your page content goes here -->
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer role="contentinfo">
+        <!-- Footer content -->
+    </footer>
+
+    <!-- ===== SCRIPTS ===== -->
+    <!-- Theme Switcher (loads theme from localStorage or system preference) -->
+    <script src="theme-switcher.js" defer></script>
+    
+    <!-- Form Validation (if using contact form) -->
+    <script src="contact.js" defer></script>
+    
+    <!-- Portfolio Filtering (if using portfolio page) -->
+    <script src="portfolio.js" defer></script>
+</body>
+</html>
+
+<!-- ========================================
+     THEME SWITCHER CSS (Add to styles-advanced.css)
+     ======================================== -->
+
+<style>
+/* Theme Switcher Container */
+.theme-switcher {
+    display: flex;
+    gap: var(--space-2);
+    align-items: center;
+    background: var(--color-bg-secondary);
+    padding: var(--space-2);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-border-light);
+}
+
+/* Theme Button Styling */
+.theme-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 2px solid transparent;
+    border-radius: var(--radius-full);
+    background: transparent;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    font-size: 1.2rem;
+    padding: 0;
+}
+
+.theme-btn:hover {
+    background: var(--color-bg-tertiary);
+}
+
+.theme-btn:focus {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-offset);
+}
+
+/* Active Theme Button */
+.theme-btn[aria-pressed="true"] {
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.theme-btn[aria-pressed="true"]:hover {
+    background: var(--color-secondary-dark);
+}
+
+/* Logo Styling */
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-4) 0;
+    gap: var(--space-8);
+}
+
+.logo {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--fs-2xl);
+}
+
+.logo-link {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.logo-link:hover {
+    color: var(--color-secondary);
+}
+
+/* Responsive Navigation */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+    
+    .nav-list {
+        width: 100%;
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .theme-switcher {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Smooth Color Transitions */
+body {
+    transition: background-color var(--transition-base),
+                color var(--transition-base);
+}
+
+header {
+    transition: background-color var(--transition-base),
+                border-color var(--transition-base);
+}
+</style>
+
+<!-- ========================================
+     IMPLEMENTATION GUIDE
+     ======================================== -->
+
+<!--
+STEP 1: Update HTML Head
+- Include the advanced stylesheet:
+  <link rel="stylesheet" href="styles-advanced.css">
+
+STEP 2: Add Theme Switcher to Header
+- Copy the theme-switcher HTML section above
+- Include the theme-switcher CSS
+
+STEP 3: Add JavaScript
+- Include theme-switcher.js in your HTML
+- It will automatically:
+  * Detect system theme preference
+  * Load saved user preference
+  * Apply theme via data-theme attribute
+  * Update button states
+  * Announce changes to screen readers
+
+STEP 4: How It Works
+- User clicks theme button
+- ThemeSwitcher.toggleTheme() is called
+- Theme is applied: document.body.setAttribute('data-theme', theme)
+- Preference is saved to localStorage
+- All CSS variables automatically update
+
+STEP 5: CSS Variable Updates
+- Light mode colors are defined at :root
+- Dark mode colors are defined at @media (prefers-color-scheme: dark)
+- Class-based overrides: body[data-theme="dark"]
+- All components use CSS variables that update automatically
+
+EXAMPLE: How Colors Update
+---
+
+Light Mode:
+--color-bg-primary: #ffffff;
+--color-text-primary: #1a1a1a;
+
+Dark Mode (auto-detected or selected):
+--color-bg-primary: #1a1a1a;
+--color-text-primary: #f5f5f5;
+
+Components automatically update because they use:
+body { background: var(--color-bg-primary); }
+
+No need to change any HTML or JavaScript!
+-->
+
+<!-- ========================================
+     TESTING CHECKLIST
+     ======================================== -->
+
+<!--
+✅ Testing the Theme Switcher:
+
+1. Light Mode
+   - Click ☀️ button
+   - Background turns white
+   - Text turns dark
+   - Button shows as active
+
+2. Dark Mode
+   - Click 🌙 button
+   - Background turns dark
+   - Text turns light
+   - Button shows as active
+
+3. Persistence
+   - Change theme
+   - Refresh page
+   - Theme persists
+
+4. System Preference
+   - Clear localStorage
+   - Close browser
+   - Open in system dark mode
+   - Site auto-detects and applies dark mode
+
+5. Accessibility
+   - Tab to theme buttons
+   - Press Enter/Space to toggle
+   - Screen reader announces change
+   - Focus visible on buttons
+
+6. Responsive
+   - Mobile view: Buttons stack
+   - Tablet view: Buttons inline
+   - All sizes: Buttons accessible
+-->
